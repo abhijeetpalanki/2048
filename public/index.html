@@ -2,16 +2,27 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/logo.png" />
+    <link rel="icon" type="image/png" href="./logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
       content="2048 Clone in React.js"
     />
-    <title>2048</title>
+    <link rel="apple-touch-icon" href="./logo.png">
+    <link rel="manifest" href="./manifest.json">
+    <title>2048 Animated</title>
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./serviceWorker.js')
+            .then(reg => console.log('Success: ', reg.scope))
+            .catch(err => console.log('Failure: ', err));
+        })
+      }
+    </script>
   </body>
 </html>
